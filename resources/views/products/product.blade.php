@@ -8,17 +8,18 @@
     <!-- Page Heading -->
     <div class="row mb-2">
         <div class="col-md-6">
-            <h4>Users</h4>
+            <h4>Products</h4>
         </div>
         <div class="col-md-6 text-right">
-            <a href="{{ route('users.create') }}" class="btn btn-outline-info btn-sm"><i class="fa-solid fa-plus"></i> New User</a>
+            <a href="{{ route('products.create') }}" class="btn btn-outline-info btn-sm"><i class="fa-solid fa-plus"></i> New
+                Product</a>
         </div>
     </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Users Data</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Products Data</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -26,67 +27,77 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Group</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Cost Price</th>
+                            <th>Price</th>
+                            <th>View</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>ID</th>
-                            <th>Group</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th>Category</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Cost Price</th>
+                            <th>Price</th>
+                            <th>View</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        @foreach ($users as $user)
+                        @foreach ($products as $product)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ !empty($user->group->title) ? $user->group->title : "N/A" }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ !empty($product->category->title) ? $product->category->title : 'N/A' }}</td>
+                                <td>{{ $product->title }}</td>
+                                <td>{{ $product->description }}</td>
+                                <td>{{ $product->cost_price }}</td>
+                                <td>{{ $product->price }}</td>
                                 <td>
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-info btn-sm"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{{ route('products.show', $product->id) }}"
+                                        class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('products.edit', $product->id) }}"
+                                        class="btn btn-outline-info btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
                                     <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
-                                        data-target="#userDeleteModal{{ $user->id }}">
+                                        data-target="#productDeleteModal{{ $product->id }}">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </td>
                             </tr>
 
-                            <!--Group delete Modal -->
-                            <div class="modal fade" id="userDeleteModal{{ $user->id }}" tabindex="-1" role="dialog"
-                                aria-labelledby="userModalLabel" aria-hidden="true">
+                            <!--Product delete Modal -->
+                            <div class="modal fade" id="productDeleteModal{{ $product->id }}" tabindex="-1"
+                                role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="userModalLabel" style="color: #ee5253"><i
+                                            <h5 class="modal-title" id="productModalLabel" style="color: #ee5253"><i
                                                     class="fas fa-trash-alt"></i>
-                                                Do you want to Delete this User?</h5>
+                                                Do you want to Delete this Product?</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="post">
+                                        <form action="{{ route('products.destroy', $product->id) }}" method="post">
                                             @csrf
                                             @method('delete')
                                             <div class="modal-body">
                                                 <div class="form-group">
-                                                    <label style="color: #2c2c54">Group</label>
-                                                    <input class="form-control" value="{{ !empty($user->group->title) ? $user->group->title : "N/A" }}" disabled>
+                                                    <label style="color: #2c2c54">Category</label>
+                                                    <input class="form-control"
+                                                        value="{{ !empty($product->category->title) ? $product->category->title : 'N/A' }}"
+                                                        disabled>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label style="color: #2c2c54">User Name</label>
-                                                    <input class="form-control" value="{{ $user->name }}" disabled>
+                                                    <label style="color: #2c2c54">Product Name</label>
+                                                    <input class="form-control" value="{{ $product->title }}" disabled>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -94,7 +105,7 @@
                                                     data-dismiss="modal">Close</button>
                                                 <button type="submit" class="btn btn-outline-danger"><i
                                                         class="fas fa-trash-alt"></i>
-                                                    User</button>
+                                                    Product</button>
                                             </div>
                                         </form>
                                     </div>

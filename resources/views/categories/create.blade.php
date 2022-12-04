@@ -23,7 +23,7 @@
                             <div class="form-group">
                                 <label for="title" style="color: #2c2c54">Category Title</label>
                                 <input type="title" name="title" class="form-control" id="title"
-                                    placeholder="Enter category title" value="{{ old('title') }}" required>
+                                    placeholder="Enter category title" value="{{ old('title') }}">
                                 @error('title')
                                     <p class="text-danger mt-2">{{ $message }}</p>
                                 @enderror

@@ -21,7 +21,7 @@ class CategoryController extends Controller
     public function store(Request $request){
 
         $formRequest = $request->validate([
-            'title' => 'required|unique:groups|regex:/^[a-zA-Z- ]*$/'
+            'title' => 'required|unique:categories|regex:/^[a-zA-Z- ]*$/'
         ]);
 
         Category::create($formRequest);
