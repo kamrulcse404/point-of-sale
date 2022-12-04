@@ -29,7 +29,7 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-outline-primary"><i class="fa-solid fa-plus"></i> New
+                            <button type="submit" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-plus"></i> New
                                 Group</button>
                         </form>
                     </div>

@@ -18,7 +18,7 @@
                         <h6 class="m-0 font-weight-bold text-primary"><i class="fa-solid fa-pen-to-square"></i> Group</h6>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('gropus.update', $group->id) }}" method="post">
+                        <form action="{{ route('groups.update', $group->id) }}" method="post">
                             @csrf
                             @method('put')
                             <div class="form-group">
