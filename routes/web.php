@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoriController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +35,13 @@ Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edi
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+
 

@@ -11,7 +11,7 @@
             <h4>Users</h4>
         </div>
         <div class="col-md-6 text-right">
-            <a href="{{ route('users.create') }}" class="btn btn-outline-info"><i class="fa-solid fa-plus"></i> New User</a>
+            <a href="{{ route('users.create') }}" class="btn btn-outline-info btn-sm"><i class="fa-solid fa-plus"></i> New User</a>
         </div>
     </div>
 
@@ -54,12 +54,12 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-eye"></i></a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-info"><i
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-info btn-sm"><i
                                             class="fa-solid fa-pen-to-square"></i></a>
-                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
+                                    <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal"
                                         data-target="#userDeleteModal{{ $user->id }}">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
