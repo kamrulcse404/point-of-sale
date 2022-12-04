@@ -38,7 +38,7 @@ class UserGroupController extends Controller
     public function update(Request $request, $id){
 
         $formRequest = $request->validate([
-            'title' => 'required|unique:groups|regex:/^[a-zA-Z- ]*$/'
+            'title' => 'required|regex:/^[a-zA-Z- ]*$/'
         ]);
 
         Group::where('id', $id)->update($formRequest);

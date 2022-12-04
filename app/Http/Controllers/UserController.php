@@ -41,7 +41,7 @@ class UserController extends Controller
     public function edit($id){
         return view('users.edit', [
             'user' => User::where('id', $id)->first(),
-            'groups' => Group::get()
+            'groups' => Group::all()
         ]);
     }
 
@@ -50,8 +50,8 @@ class UserController extends Controller
         $formRequest = $request->validate([
             'group_id' => 'required',
             'name' => 'required|regex:/^[a-zA-Z- ]*$/|min:4',
-            'email' => 'required|unique:users',
-            'phone' => 'required|numeric|min:11|unique:users',
+            'email' => 'required',
+            'phone' => 'required|numeric|min:11',
             'address' => 'required',
         ]);
 
