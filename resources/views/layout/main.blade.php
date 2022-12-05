@@ -33,7 +33,11 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('partials.sidebar')
+
+        @auth
+            @include('partials.sidebar')
+        @endauth
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -43,7 +47,11 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('partials.nav')
+
+                @auth
+                    @include('partials.nav')
+                @endauth
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
