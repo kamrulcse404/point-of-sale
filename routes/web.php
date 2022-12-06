@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserGroupController;
+use App\Http\Controllers\UserSalesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +39,8 @@ Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edi
 Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update')->middleware('auth');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('auth');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show')->middleware('auth');
+
+Route::get('/users/{id}/sales', [UserSalesController::class, 'index'])->name('user.sales')->middleware('auth');
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index')->middleware('auth');
 Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create')->middleware('auth');
