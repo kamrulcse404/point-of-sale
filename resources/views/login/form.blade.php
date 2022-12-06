@@ -18,6 +18,7 @@
                                         <h1 class="h4 text-primary-900 mb-4">Welcome To POS</h1>
                                     </div>
                                     <form action="{{ route('authenticate') }}" method="POST">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="email" style="color: #2c2c54">Email</label>
                                             <input type="email" name="email" class="form-control" id="email"
